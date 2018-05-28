@@ -67,6 +67,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func clear() {
+        calcul.clear()
+        updateDisplay()
+    }
     private func updateDisplay() {
         var text = ""
         for (i, stringNumber) in calcul.stringNumbers.enumerated() {
