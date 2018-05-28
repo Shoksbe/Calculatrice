@@ -14,6 +14,7 @@ class Calculation {
     var stringNumbers: [String] = [String()]
     var operators: [String] = ["+"]
     var index = 0
+    var previousResult : String?
 
     var isExpressionCorrect: Bool {
         if let stringNumber = stringNumbers.last {
@@ -27,6 +28,10 @@ class Calculation {
     var canAddOperator: Bool {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
+                if let previousResult = previousResult {
+                    stringNumbers[stringNumbers.count-1] = previousResult
+                    return true
+                }
                 return false
             }
         }
@@ -59,6 +64,8 @@ class Calculation {
             }
         }
 
+        previousResult = String(total)
+        
         return total
     }
 

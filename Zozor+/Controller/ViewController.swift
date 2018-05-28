@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     @IBAction func equal() {
         if calcul.isExpressionCorrect {
             let total = calcul.calculateTotal()
-            textView.text = textView.text + "=\(total)"
+            textView.text = "\(total)"
             calcul.clear()
         }else{
             if calcul.stringNumbers.count == 1 {

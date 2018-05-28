@@ -18,6 +18,18 @@ class CalculationTestCase: XCTestCase {
         calcul = Calculation()
     }
     
+    private func add(_ nb1: Int, to nb2: Int) {
+        calcul.addNewNumber(nb2)
+        calcul.addNewOperator("+")
+        calcul.addNewNumber(nb1)
+    }
+    
+    private func substract(_ nb1: Int, to nb2: Int) {
+        calcul.addNewNumber(nb2)
+        calcul.addNewOperator("-")
+        calcul.addNewNumber(nb1)
+    }
+    
     func testGivenEmptyNumbersTable_WhenAddingOneNumber_ThenTableNumberCountIs1() {
         calcul.addNewNumber(5)
         
@@ -47,9 +59,7 @@ class CalculationTestCase: XCTestCase {
     }
     
     func testGivenAdds5To6_WhenTotalIsCalculate_ThenTotalEquals11() {
-        calcul.addNewNumber(5)
-        calcul.addNewOperator("+")
-        calcul.addNewNumber(6)
+        add(5, to: 6)
         
         let total = calcul.calculateTotal()
         
@@ -58,9 +68,7 @@ class CalculationTestCase: XCTestCase {
     }
     
     func testGivenSubstract8To10_WhenTotalIsCalculate_ThenTotalEquals2() {
-        calcul.addNewNumber(10)
-        calcul.addNewOperator("-")
-        calcul.addNewNumber(8)
+        substract(8, to: 10)
         
         let total = calcul.calculateTotal()
         
@@ -75,22 +83,33 @@ class CalculationTestCase: XCTestCase {
     }
     
     func testGivenAdds5To5_WhenCheckIfExpressionIsCorrect_ThenExpressionCorrectEqualsTrue() {
-        calcul.addNewNumber(5)
-        calcul.addNewOperator("+")
-        calcul.addNewNumber(5)
+        add(5, to: 5)
         
         XCTAssertTrue(calcul.isExpressionCorrect)
     }
     
     func testGivenStringNumber5Plus5_WhenClearIsCalled_ThenNumberTableAndOperatorTableCountEquals1() {
-        calcul.addNewNumber(5)
-        calcul.addNewOperator("+")
-        calcul.addNewNumber(5)
+        add(5, to: 5)
         
         calcul.clear()
         
         XCTAssertEqual(calcul.stringNumbers.count, 1)
         XCTAssertEqual(calcul.operators.count, 1)
+    }
+    
+    func testGivenNilToPreviousResult_WhenAskIfCanAddOperator_ThenResponseIsFalse() {
+        XCTAssertFalse(calcul.canAddOperator)
+    }
+    
+    func testGiven25ToPreviousResult_WhenAdding5ToPreviousResult_ThenTotalEquals30() {
+        calcul.previousResult = "25"
+        
+        if calcul.canAddOperator {
+            calcul.addNewOperator("+")
+            calcul.addNewNumber(5)
+        }
+        
+        XCTAssertEqual(calcul.calculateTotal(), 30)
     }
 }
 
