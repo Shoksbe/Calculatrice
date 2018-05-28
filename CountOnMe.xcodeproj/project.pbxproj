@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37368A0B20BC498800171493 /* BrainTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37368A0A20BC498800171493 /* BrainTestCase.swift */; };
-		3740446F20BB0A4A00F5B348 /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740446E20BB0A4A00F5B348 /* Brain.swift */; };
+		37368A0B20BC498800171493 /* CalculationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37368A0A20BC498800171493 /* CalculationTestCase.swift */; };
+		3740446F20BB0A4A00F5B348 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740446E20BB0A4A00F5B348 /* Calculation.swift */; };
 		C926DADD1D7581BB00477020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C926DADC1D7581BB00477020 /* AppDelegate.swift */; };
 		C926DADF1D7581BB00477020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C926DADE1D7581BB00477020 /* ViewController.swift */; };
 		C926DAE21D7581BB00477020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C926DAE01D7581BB00477020 /* Main.storyboard */; };
@@ -30,8 +30,8 @@
 /* Begin PBXFileReference section */
 		37368A0020BC48D000171493 /* CountOnMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountOnMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37368A0420BC48D000171493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37368A0A20BC498800171493 /* BrainTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestCase.swift; sourceTree = "<group>"; };
-		3740446E20BB0A4A00F5B348 /* Brain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
+		37368A0A20BC498800171493 /* CalculationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationTestCase.swift; sourceTree = "<group>"; };
+		3740446E20BB0A4A00F5B348 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		C926DAD91D7581BB00477020 /* CountOnMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountOnMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C926DADC1D7581BB00477020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C926DADE1D7581BB00477020 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				37368A0420BC48D000171493 /* Info.plist */,
-				37368A0A20BC498800171493 /* BrainTestCase.swift */,
+				37368A0A20BC498800171493 /* CalculationTestCase.swift */,
 			);
 			path = CountOnMeTests;
 			sourceTree = "<group>";
@@ -99,7 +99,7 @@
 		3740446D20BAFE1100F5B348 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3740446E20BB0A4A00F5B348 /* Brain.swift */,
+				3740446E20BB0A4A00F5B348 /* Calculation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37368A0B20BC498800171493 /* BrainTestCase.swift in Sources */,
+				37368A0B20BC498800171493 /* CalculationTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C926DADF1D7581BB00477020 /* ViewController.swift in Sources */,
-				3740446F20BB0A4A00F5B348 /* Brain.swift in Sources */,
+				3740446F20BB0A4A00F5B348 /* Calculation.swift in Sources */,
 				C926DADD1D7581BB00477020 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

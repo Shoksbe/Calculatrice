@@ -12,10 +12,10 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
 
-    var calcul: Brain!
+    var calcul: Calculation!
 
     override func viewDidLoad() {
-        calcul = Brain()
+        calcul = Calculation()
     }
 
 
@@ -30,16 +30,15 @@ class ViewController: UIViewController {
         for (i, numberButton) in numberButtons.enumerated() {
             if sender == numberButton {
                 calcul.addNewNumber(i)
-                textView.text = calcul.updateDisplay()
+                updateDisplay()
             }
         }
     }
 
     @IBAction func plus() {
         if calcul.canAddOperator {
-        	calcul.operators.append("+")
-        	calcul.stringNumbers.append("")
-            textView.text = calcul.updateDisplay()
+        	calcul.addNewOperator("+")
+            updateDisplay()
         }else{
            showAlertWrongExpression()
         }
@@ -47,9 +46,8 @@ class ViewController: UIViewController {
 
     @IBAction func minus() {
         if calcul.canAddOperator {
-            calcul.operators.append("-")
-            calcul.stringNumbers.append("")
-            textView.text = calcul.updateDisplay()
+            calcul.addNewOperator("-")
+            updateDisplay()
         }else{
             showAlertWrongExpression()
         }
@@ -67,6 +65,20 @@ class ViewController: UIViewController {
                 showAlertWrongExpression()
             }
         }
+    }
+    
+    private func updateDisplay() {
+        var text = ""
+        for (i, stringNumber) in calcul.stringNumbers.enumerated() {
+            // Add operator
+            if i > 0 {
+                text += calcul.operators[i]
+            }
+            // Add number
+            text += stringNumber
+        }
+        
+        textView.text = text
     }
 
     private func showAlertWrongExpression() {

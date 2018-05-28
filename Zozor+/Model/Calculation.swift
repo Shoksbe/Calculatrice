@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Brain {
+class Calculation {
 
     
     var stringNumbers: [String] = [String()]
@@ -41,6 +41,11 @@ class Brain {
             stringNumbers[stringNumbers.count-1] = stringNumberMutable
         }
     }
+    
+    func addNewOperator(_ newOperator: String) {
+        operators.append(newOperator)
+        stringNumbers.append("")
+    }
 
     func calculateTotal()-> Int {
         var total = 0
@@ -62,18 +67,4 @@ class Brain {
         operators = ["+"]
         index = 0
     }
-
-    func updateDisplay()-> String {
-        var text = ""
-        for (i, stringNumber) in stringNumbers.enumerated() {
-            // Add operator
-            if i > 0 {
-                text += operators[i]
-            }
-            // Add number
-            text += stringNumber
-        }
-        return text
-    }
-
 }
