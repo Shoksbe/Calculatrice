@@ -30,12 +30,6 @@ class CalculationTestCase: XCTestCase {
         calcul.addNewNumber(nb1)
     }
     
-    func testGivenEmptyNumbersTable_WhenAddingOneNumber_ThenTableNumberCountIs1() {
-        calcul.addNewNumber(5)
-        
-        XCTAssertEqual(calcul.stringNumbers.count, 1)
-    }
-    
     func testGivenNumber6_WhenAskIfCanAddOperator_ThenResponseIsTrue() {
         calcul.addNewNumber(6)
         
@@ -48,16 +42,7 @@ class CalculationTestCase: XCTestCase {
         
         XCTAssertFalse(calcul.canAddOperator)
     }
-    
-    func testGivenNumber5_WhenAddingOperator_ThenNumberTableCountIs2AndOperatorTableCountIs1() {
-        calcul.addNewNumber(5)
-        
-        calcul.addNewOperator("+")
-        
-        XCTAssertEqual(calcul.stringNumbers.count, 2)
-        XCTAssertEqual(calcul.operators.count, 2)
-    }
-    
+
     func testGivenAdds5To6_WhenTotalIsCalculate_ThenTotalEquals11() {
         add(5, to: 6)
         
@@ -97,7 +82,7 @@ class CalculationTestCase: XCTestCase {
         XCTAssertEqual(calcul.operators.count, 1)
     }
     
-    func testGivenNilToPreviousResult_WhenAskIfCanAddOperator_ThenResponseIsFalse() {
+    func testGivenNoPreviousResultAndNoNumbers_WhenAskIfCanAddOperator_ThenResponseIsFalse() {
         XCTAssertFalse(calcul.canAddOperator)
     }
     
@@ -110,6 +95,20 @@ class CalculationTestCase: XCTestCase {
         }
         
         XCTAssertEqual(calcul.calculateTotal(), 30)
+    }
+    
+    func testGivenAdds10To5_WhenAskingIfCalculIsStarted_ThenResponseIsTrue() {
+        add(10, to: 5)
+
+        XCTAssertTrue(calcul.isStarted)
+    }
+
+    func testGivenAdds10To5_WhenClearCalculAndAskingIfCalculIsStarted_ThenResponseIsfalse() {
+        add(10, to: 5)
+
+        calcul.clear()
+
+        XCTAssertFalse(calcul.isStarted)
     }
 }
 
