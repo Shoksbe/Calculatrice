@@ -40,7 +40,11 @@ class ViewController: UIViewController {
         	calcul.addNewOperator("+")
             updateDisplay()
         }else{
-           showAlertWrongExpression()
+            if calcul.isStarted {
+                showAlertWrongExpression()
+            } else {
+                showAlertBeginNewCalcul()
+            }
         }
     }
 
@@ -49,7 +53,11 @@ class ViewController: UIViewController {
             calcul.addNewOperator("-")
             updateDisplay()
         }else{
-            showAlertWrongExpression()
+            if calcul.isStarted {
+                showAlertWrongExpression()
+            } else {
+                showAlertBeginNewCalcul()
+            }
         }
     }
 
@@ -59,30 +67,22 @@ class ViewController: UIViewController {
             textView.text = "\(total)"
             calcul.clear()
         }else{
-            if calcul.stringNumbers.count == 1 {
-                showAlertBeginNewCalcul()
-            } else {
+            if calcul.isStarted {
                 showAlertWrongExpression()
+            } else {
+                showAlertBeginNewCalcul()
             }
         }
     }
     
     @IBAction func clear() {
+        calcul.previousResult = ""
         calcul.clear()
         updateDisplay()
     }
+    
     private func updateDisplay() {
-        var text = ""
-        for (i, stringNumber) in calcul.stringNumbers.enumerated() {
-            // Add operator
-            if i > 0 {
-                text += calcul.operators[i]
-            }
-            // Add number
-            text += stringNumber
-        }
-        
-        textView.text = text
+        textView.text = calcul.toText()
     }
 
     private func showAlertWrongExpression() {
