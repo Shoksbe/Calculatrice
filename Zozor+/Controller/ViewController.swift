@@ -10,22 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     // MARK: - Properties
-    
-
     var calcul: Calculation!
 
-    override func viewDidLoad() {
-        calcul = Calculation()
-    }
-
-
     // MARK: - Outlets
-
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
 
     // MARK: - Action
-
+    
+    //Adding the number tapped to the calculation
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         for (i, numberButton) in numberButtons.enumerated() {
             if sender == numberButton {
@@ -35,6 +28,7 @@ class ViewController: UIViewController {
         }
     }
 
+    //Added operator "+" if it is possible, otherwise treatment of the error with an alert.
     @IBAction func plus() {
         if calcul.canAddOperator {
         	calcul.addNewOperator("+")
@@ -48,6 +42,7 @@ class ViewController: UIViewController {
         }
     }
 
+    //Added operator "-" if it is possible, otherwise treatment of the error with an alert.
     @IBAction func minus() {
         if calcul.canAddOperator {
             calcul.addNewOperator("-")
@@ -61,6 +56,7 @@ class ViewController: UIViewController {
         }
     }
 
+    //Calculates the total of the operation and processing the error with an alert.
     @IBAction func equal() {
         if calcul.isExpressionCorrect {
             let total = calcul.calculateTotal()
@@ -75,12 +71,19 @@ class ViewController: UIViewController {
         }
     }
     
+    //Resetting the calculation
     @IBAction func clear() {
         calcul.previousResult = ""
         calcul.clear()
         updateDisplay()
     }
     
+    // MARK: - Methodes
+    override func viewDidLoad() {
+        calcul = Calculation()
+    }
+    
+    ///Update the display with the new values
     private func updateDisplay() {
         textView.text = calcul.toText()
     }
