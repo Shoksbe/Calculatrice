@@ -9,15 +9,14 @@
 import Foundation
 
 class Calculation {
-
     
-    var stringNumbers: [String] = [String()]
-    var operators: [String] = ["+"]
-    var index = 0
     var previousResult : String = ""
 
+    private var stringNumbers: [String] = [String()]
+    private var operators: [String] = ["+"]
+    private var index = 0
+
     var isExpressionCorrect: Bool {
-        print(stringNumbers)
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty || stringNumbers.count <= 1 {
                 return false
